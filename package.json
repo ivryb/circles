@@ -1,0 +1,36 @@
+{
+  "name": "Circles",
+  "version": "0.1.0",
+  "description": "Game.",
+  "author": "Ivan Rybnikov",
+  "license": "ISC",
+  "browserslist": [
+    "last 3 versions"
+  ],
+  "scripts": {
+    "clean": "rm -rf build",
+    "dev": "npm run clean; gulp dev | npm run webpack:dev",
+    "build": "npm run clean; gulp build; npm run webpack:build",
+    "webpack:dev": "./node_modules/.bin/webpack-dev-server --hot --inline",
+    "webpack:build": "./node_modules/.bin/webpack --bail --progress --colors"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-lodash": "^3.3.2",
+    "babel-preset-env": "^1.6.1",
+    "gulp": "^3.9.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-svg-sprite": "^1.3.7",
+    "gulp-svgmin": "^1.2.3",
+    "gulp-watch": "^4.3.11",
+    "url-loader": "^0.5.9",
+    "webpack": "^2.7.0",
+    "webpack-dev-server": "^2.9.5",
+    "webpack-notifier": "^1.5.0"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "lodash": "^4.17.4"
+  }
+}
