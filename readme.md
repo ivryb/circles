@@ -1,4 +1,3 @@
-# To do
+# Circles
 
-- Sentry
-- Prettier
+Canvas game.
