@@ -47,7 +47,7 @@ export class Player {
   }
 
   shot() {
-    this.bullets.push(new Bullet(this.game, this, Vec2.direction(this.cursor.x - this.circle.pos.x, this.cursor.y - this.circle.pos.y), {
+    this.bullets.push(new Bullet(this.game, this, Vec2.unit(this.cursor.x - this.circle.pos.x, this.cursor.y - this.circle.pos.y), {
       size: 5,
       speed: 15
     }))
@@ -58,7 +58,7 @@ export class Player {
   }
 
   bigShot() {
-    this.bullets.push(new Bullet(this.game, this, Vec2.direction(this.cursor.x - this.circle.pos.x, this.cursor.y - this.circle.pos.y), {
+    this.bullets.push(new Bullet(this.game, this, Vec2.unit(this.cursor.x - this.circle.pos.x, this.cursor.y - this.circle.pos.y), {
       size: 4,
       speed: 13,
       sizeUp: 2.5,
@@ -120,9 +120,9 @@ export class Player {
       this.direction.x = -1
     }
 
-    this.direction.multiply(.87)
+    this.direction = this.direction.multiply(.87)
 
-    this.circle.pos.add(this.direction.clone().multiply(this.speed))
+    this.circle.pos = this.circle.pos.add(this.direction.multiply(this.speed))
   }
 
   initKeys() {

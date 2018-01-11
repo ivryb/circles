@@ -19,11 +19,11 @@ export class Circle {
     this.ctx.stroke()
   }
 
-  checkDistance({ circle }) {
+  checkDistance(circle) {
     return this.size + circle.size >= Math.sqrt(Math.pow(this.pos.x - circle.pos.x, 2) + Math.pow(this.pos.y - circle.pos.y, 2))
   }
 
-  isOutOfCanvas({ width, height }) {
+  isOutOfField({ width, height }) {
     return this.pos.x + this.size <= 0 || this.pos.x - this.size >= width || this.pos.y - this.size >= height || this.pos.y + this.size <= 0
   }
 }

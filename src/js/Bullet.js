@@ -21,7 +21,7 @@ export class Bullet {
   }
 
   update(i) {
-    this.circle.pos.add(this.direction.clone().multiply(this.speed))
+    this.circle.pos = this.circle.pos.add(this.direction.multiply(this.speed))
 
     this.speed += this.speedUp
 
@@ -37,11 +37,11 @@ export class Bullet {
   }
 
   kill(i) {
-    if (this.circle.size === 0 || this.circle.isOutOfCanvas(this.game)) {
+    if (this.circle.size === 0 || this.circle.isOutOfField(this.game)) {
       this.unit.removeBullet(i)
     } else {
       this.game.enemies.reduceRight((result, enemy, index) => {
-        if (this.circle.checkDistance(enemy)) {
+        if (this.circle.checkDistance(enemy.circle)) {
           this.game.removeEnemy(index)
           this.shoot(i)
         }

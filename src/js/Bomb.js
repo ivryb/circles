@@ -27,19 +27,16 @@ export class Bomb {
 
   update(i) {
     this.circle.draw()
-    this.kill(i)
-  }
 
-  kill(index) {
-    if (!this.active) return
+    if (this.active) {
+      const targets = this.game.enemies.concat(this.unit.bullets)
 
-    const targets = this.game.enemies.concat(this.unit.bullets)
-
-    targets.reduceRight((result, target) => {
-      if (target !== this && this.circle.checkDistance(target)) {
-        this.detonate(index)
-      }
-    }, null)
+      targets.reduceRight((result, target) => {
+        if (target !== this && this.circle.checkDistance(target.circle)) {
+          this.detonate(i)
+        }
+      }, null)
+    }
   }
 
   detonate(index) {

@@ -32,8 +32,8 @@ export class Enemy {
   }
 
   move() {
-    this.direction = new Vec2.direction(this.player.circle.pos.x - this.circle.pos.x, this.player.circle.pos.y - this.circle.pos.y)
-    this.circle.pos.add(this.direction.clone().multiply(this.speed))
+    this.direction = new Vec2.unit(this.player.circle.pos.x - this.circle.pos.x, this.player.circle.pos.y - this.circle.pos.y)
+    this.circle.pos = this.circle.pos.add(this.direction.multiply(this.speed))
   }
 
   update() {
