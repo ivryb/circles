@@ -1,3 +1,0 @@
-# Circles
-
-Canvas game.
